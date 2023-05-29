@@ -5,31 +5,30 @@
 ** memory
 */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+#include "malloc.h"
 
 void *my_malloc(size_t size)
 {
     void *check_end_data = sbrk(0);
-    void *add_data = sbrk(size);
 
     if (check_end_data == (void*)-1) {
         return NULL;
     }
-    return add_data;
+    check_end_data = sbrk(size);
+    return check_end_data;
 }
 
 int main(int argc, char *argv[])
 {
     size_t size = 10;
-    void *malloc = my_malloc(size);
+        void *malloc = my_malloc(size);
 
-    if (malloc == NULL) {
-        printf("erreur memoire\n");
-    } else {
-        printf("mémoire alloué %p\n", malloc);
-    }
+        if (malloc == NULL) {
+            printf("erreur memoire\n");
+        } else {
+            printf("mémoire alloué %p\n", malloc);
+        }
+
 
     return 0;
 }
