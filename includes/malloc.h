@@ -10,10 +10,6 @@
     #include <stdio.h>
     #include <stdlib.h>
     #include <unistd.h>
+    #include <string.h>
 
-typedef struct malloc_t {
-    size_t size;
-    int is_free;
-    malloc_t *next;
-} malloc_s;
 #endif /* !MALLOC_H_ */
