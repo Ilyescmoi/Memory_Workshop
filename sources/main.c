@@ -22,7 +22,6 @@ void *my_malloc(size_t size)
 
 int main(int argc, char *argv[])
 {
-    char *str = malloc(sizeof("Hello world!"));
     size_t size = 10;
     void *malloc = my_malloc(size);
 
